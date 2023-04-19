@@ -14,6 +14,6 @@ describe('Testing driver handler to listen for and emitting events', ()=>{
       address: 'Schmittfort, LA' };
     console.log = jest.fn();
     emitter.emit('pickup', payload);
-    expect(console.log).toHaveBeenCalled();
+    expect(console.log).toHaveBeenCalledTimes(1);
   })
 })
