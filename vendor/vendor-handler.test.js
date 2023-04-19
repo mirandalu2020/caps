@@ -1,7 +1,10 @@
 'use strict';
 
+const { emitter } = require('../eventPool');
+
 require('./handler');
-const { emitter } = require('./../eventPool');
+// const { emitter } = require('./../eventPool');
+
 
 
 describe('Testing driver handler to listen for and emitting events', ()=>{
@@ -12,6 +15,7 @@ describe('Testing driver handler to listen for and emitting events', ()=>{
       orderID: 'e3669048-7313-427b-b6cc-74010ca1f8f0',
       customer: 'Jamal Braun',
       address: 'Schmittfort, LA' };
+
     console.log = jest.fn();
     emitter.emit('delivered', payload);
     expect(console.log).toHaveBeenCalled();
