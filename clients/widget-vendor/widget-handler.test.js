@@ -3,7 +3,7 @@
 // const { emitter } = require('../eventPool');
 
 //create a variable to the object from vendor-handler
-let { sendPickup, handleDelivered } = require('./handler');
+let { sendPickup, handleDelivered } = require('./widget-handler');
 
 
 

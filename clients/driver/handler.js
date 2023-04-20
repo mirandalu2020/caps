@@ -1,5 +1,8 @@
 'use strict';
 
+const Chance = require('chance');
+const chance = new Chance();
+
 // const { io } = require('socket.io-client');
 // const SERVER_URL = process.env.SERVER_URL || 'http://localhost:3001';
 
@@ -25,15 +28,23 @@
 // });
 
 module.exports = {
-  joinRoom: function(socket, payload, roomName) {
-    socket.emit(roomName, payload);
-    console.log('caps socket on')
-  },
-  handlePickUp: function(socket, payload) {
-      socket.emit('in-transit', payload);
-      console.log(`DRIVER: picked up ${payload['orderId']}`)
-      socket.emit('delivered', payload);
-      console.log(`${payload.orderId} in transit`);
-  }
 
-}
+  handlePickUp: function(socket){
+    
+    return function(payload){
+      socket.emit('join-room', payload)
+        socket.emit('getAll', payload);
+        console.log(payload)
+        
+        socket.emit('in-transit', payload);
+        console.log(payload)
+        console.log(`DRIVER: picked up ${payload['orderId']}`)
+
+
+        //inform the vendor the package is delivered
+        socket.emit('delivered', payload);
+        console.log(`${payload.orderId} delivered`);
+      
+    }
+  },
+  }
