@@ -15,4 +15,10 @@ Each vendor/driver will be communicating via their own namespace `/caps` and the
 
 ![Event Driven Programming](Event-Driven%20Programming.png)
 
+### With Sockets
+
 ![Event Driven Programming with sockets](socket.png)
+
+### Message Queue Added
+
+![Alt text](message-queue.png)
