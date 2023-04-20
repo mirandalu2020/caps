@@ -13,5 +13,4 @@ let capsSocket = io(SERVER_URL);
 
 capsSocket.on('delivered', handleDelivered(capsSocket))
 
-
 sendPickUp(capsSocket, generatePayload());

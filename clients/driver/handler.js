@@ -32,18 +32,18 @@ module.exports = {
   handlePickUp: function(socket){
     
     return function(payload){
-      socket.emit('join-room', payload)
-        socket.emit('getAll', payload);
-        console.log(payload)
+      socket.emit('join-group', payload);
+      socket.emit('getAll', payload);
+      console.log(payload);
         
-        socket.emit('in-transit', payload);
-        console.log(payload)
-        console.log(`DRIVER: picked up ${payload['orderId']}`)
+      socket.emit('in-transit', payload);
+      console.log(payload);
+      console.log(`DRIVER: picked up ${payload['orderId']}`);
 
 
-        //inform the vendor the package is delivered
-        socket.emit('delivered', payload);
-        console.log(`${payload.orderId} delivered`);
+      //inform the vendor the package is delivered
+      socket.emit('delivered', payload);
+      console.log(`${payload.orderId} delivered`);
       
     }
   },

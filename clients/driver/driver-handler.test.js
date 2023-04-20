@@ -33,7 +33,7 @@ describe('Testing driver handler to listen for and emitting events', ()=>{
       customer: 'Jamal Braun',
       address: 'Schmittfort, LA' };
 
-    joinRoom(socket, payload, 'test-room');
+    socket.emit('join-group', payload.store);
     expect(socket.emit).toHaveBeenCalled();
   })
 })
